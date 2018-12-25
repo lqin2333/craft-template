@@ -1,0 +1,39 @@
+<section class="navigation">
+    <div class="nav-container">
+        <div class="brand">
+            <a href="{{siteUrl}}">
+                {% if entry.logoImage is defined and entry.logoImage %}
+                    <img src="{{entry.logoImage.one.getUrl}}" alt="logo">
+                {% else %}
+                    Logo
+                {% endif %}
+            </a>
+        </div>
+        <!-- this nav only accepts 2 levels -->
+        {% if craft.entries.section('navigation')is defined and craft.entries.section('navigation') %}
+            {% set links = craft.entries.section('navigation').all() %}
+            <nav>
+                <div class="nav-mobile">
+                    <a id="nav-toggle" href="#!">
+                        <span></span></a>
+                </div>
+                <ul class="nav-list">
+                    {% nav link in links %}
+                    <li>
+                        {% if link.hasDescendants() %}
+                            <a href="#">{{link.title}}</a>
+                        {% else %}
+                            <a href="{{link.slug}}">{{link.title}}</a>
+                        {% endif %}
+                        {% ifchildren %}
+                        <ul class="nav-dropdown">
+                            {% children %}
+                        </ul>
+                        {% endifchildren %}
+                    </li>
+                    {% endnav %}
+                </ul>
+            </nav>
+        {% endif %}
+    </div>
+</section>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- SEO can set here -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
+        <meta name="referrer" content="origin-when-cross-origin"/>
+
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <!-- title -->
+        <title>
+            {% if title is defined %}{{ title }} - {% endif %}{{ siteName }}
+        </title>
+
+        <!-- CSS and JS-->
+        {% include 'partials/_head' %}
+    </head>
+    <body>
+        {% include 'components/_nav' %}
+        
+    </body>
+</html>

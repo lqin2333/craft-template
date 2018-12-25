@@ -21,7 +21,7 @@
                     {% nav link in links %}
                     <li>
                         {% if link.hasDescendants() %}
-                            <a href="#">{{link.title}}</a>
+                            <a href="#">{{link.title}} <i class="fas fa-angle-up"></i></a>
                         {% else %}
                             <a href="{{link.slug}}">{{link.title}}</a>
                         {% endif %}
